@@ -1,0 +1,35 @@
+.wine-list-container {
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+}
+
+li {
+    list-style-type: none;
+}
+
+.loading-bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-icon {
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    width: 400px;
+    height: 400px;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}

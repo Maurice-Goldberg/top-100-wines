@@ -5,8 +5,8 @@ const winesReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_WINES:
-            action.wines.forEach((wineObj) => {
-                newState[wineObj.id] = wineObj;
+            Object.values(action.wines).forEach((wineObj) => {
+                newState[wineObj.wineId] = wineObj;
             });
             return newState;
         default:

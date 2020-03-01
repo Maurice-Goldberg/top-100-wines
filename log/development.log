@@ -1,0 +1,1783 @@
+  [1m[35m (552.8ms)[0m  [1m[35mCREATE DATABASE "top100_wines_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (415.0ms)[0m  [1m[35mCREATE DATABASE "top100_wines_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8694042922585644960)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWines (20200301161847)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "wines" ("id" bigserial primary key, "wineId" character varying NOT NULL, "winery_full" character varying NOT NULL, "wine_full" character varying NOT NULL, "vintage" character varying NOT NULL, "note" character varying NOT NULL, "taster_initials" character varying NOT NULL, "color" character varying NOT NULL, "country" character varying NOT NULL, "region" character varying NOT NULL, "score" integer NOT NULL, "price" integer NOT NULL, "alternate_bottle_size" character varying, "issue_date" character varying NOT NULL, "top100_year" integer NOT NULL, "top100_rank" integer NOT NULL)[0m
+  ↳ db/migrate/20200301161847_create_wines.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200301161847"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-01 16:20:25.219024"], ["updated_at", "2020-03-01 16:20:25.219024"]]
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8694042922585644960)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/owner/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/owner/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/owner/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "451874"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (2.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "451874"], ["winery_full", "Tenuta San Guido"], ["wine_full", "Bolgheri-Sassicaia Sassicaia"], ["vintage", "2015"], ["note", "Rich and concentrated, this red features black currant, blackberry, violet, mineral and spice flavors. Dense yet lively, structured yet impeccably balanced, with vibrant acidity driving the long, fruit-filled aftertaste. The oak is beautifully integrated. Cabernet Sauvignon and Cabernet Franc. Best from 2023 through 2042. 17,200 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 97], ["price", 245], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 1]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448413"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (1.1ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448413"], ["winery_full", "Château Canon-La Gaffelière"], ["wine_full", "St.-Emilion"], ["vintage", "2015"], ["note", "Still youthfully tight and backward, with a well-roasted frame of alder and juniper holding sway for now, but the core of cassis, blackberry and plum fruit waits in reserve, showing prodigious depth. When the toast and fruit melds, the backdrop of tobacco, singed iron and chalky minerality will get a turn to show. There's a lot here. Built for the cellar. Merlot, Cabernet Franc and Cabernet Sauvignon. Best from 2025 through 2040. 6,250 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 96], ["price", 84], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 2]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456516"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456516"], ["winery_full", "Castello di Volpaia"], ["wine_full", "Chianti Classico Riserva"], ["vintage", "2015"], ["note", "Though saturated with black currant and blackberry fruit and backed by opaque tannins, this red is pure and balanced. Thyme, iron, leather and tar notes give this complexity, while the finish goes into overtime. Best from 2023 through 2040. 2,500 cases imported."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 96], ["price", 35], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 3]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453260"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453260"], ["winery_full", "La Rioja Alta"], ["wine_full", "Rioja 890 Gran Reserva Selección Especial"], ["vintage", "2005"], ["note", "Cedar and sandalwood aromas give way to flavors of tea, tobacco, dried cherry, forest floor and orange peel in this expressive red. Round on the palate, supported by muscular tannins and juicy acidity. Big but graceful, mature yet lively, in the traditional style. Drink now through 2030. 4,753 cases made."], ["taster_initials", "TM"], ["color", "red"], ["country", "Spain"], ["region", "Spain"], ["score", 95], ["price", 175], ["issue_date", "Sep 30, 2018"], ["top100_year", 2018], ["top100_rank", 4]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460497"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460497"], ["winery_full", "Moët & Chandon"], ["wine_full", "Brut Champagne Dom Pérignon Legacy Edition"], ["vintage", "2008"], ["note", "There's power to this graceful Champagne, with the vivid acidity swathed in a fine, creamy mousse and flavors of toasted brioche, kumquat, pastry cream, candied ginger and poached plum that dance across the palate. An underpinning of smoky mineral gains momentum on the lasting finish. Drink now through 2033.  "], ["taster_initials", "AN"], ["color", "sparkling"], ["country", "France"], ["region", "Champagne"], ["score", 96], ["price", 180], ["issue_date", "Nov 30, 2018"], ["top100_year", 2018], ["top100_rank", 5]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455615"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455615"], ["winery_full", "Aubert"], ["wine_full", "Chardonnay Carneros Larry Hyde & Sons"], ["vintage", "2016"], ["note", "Voluptuous and creamy, with densely packed flavors of apple pastry, pear tart and peach and hints of mango that are long and rich. The plush, complex finish is filled with notes of spice and dried herbs. Drink now through 2026. 960 cases made."], ["taster_initials", "KM"], ["color", "white"], ["country", "California"], ["region", "Carneros"], ["score", 96], ["price", 85], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 6]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "461597"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "461597"], ["winery_full", "Colene Clemens"], ["wine_full", "Pinot Noir Chehalem Mountains Dopp Creek"], ["vintage", "2015"], ["note", "Impressive for the polished texture and elegant complexity, offering vibrant raspberry, orange peel and spice flavors that gain momentum toward refined tannins. Drink now through 2023. 3,023 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Oregon"], ["region", "Oregon"], ["score", 95], ["price", 26], ["issue_date", "Dec 15, 2018"], ["top100_year", 2018], ["top100_rank", 7]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458489"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458489"], ["winery_full", "Le Vieux Donjon"], ["wine_full", "Châteauneuf-du-Pape"], ["vintage", "2016"], ["note", "This offers a blitz of bay leaf and juniper notes out front, followed by a racy and tightly coiled core of red and black currant, damson plum and cherry fruit flavors. Lots of brisk iron and <i>garrigue</i> accents rifle through the finish. Clear, precise and streamlined, this should age wonderfully. Best from 2020 through 2040. 7,000 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Southern Rhône"], ["score", 95], ["price", 70], ["issue_date", "Nov 30, 2018"], ["top100_year", 2018], ["top100_rank", 8]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457723"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457723"], ["winery_full", "Tenuta delle Terre Nere"], ["wine_full", "Etna San Lorenzo"], ["vintage", "2016"], ["note", "Ripe black cherry and raspberry fruit meets tarry mineral and accents of licorice, spiced orange peel and herb in this chewy, medium-bodied red. The bold flavor and structure are deftly knit into a graceful and harmonious package, with the spice and mineral character lingering on the finish. Best from 2020 through 2030. 750 cases made."], ["taster_initials", "AN"], ["color", "red"], ["country", "Italy"], ["region", "Sicily"], ["score", 95], ["price", 60], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 9]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450432"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450432"], ["winery_full", "Bedrock"], ["wine_full", "The Bedrock Heritage Sonoma Valley"], ["vintage", "2016"], ["note", "A knockout red, focused and well-built but loaded with personality, with expressive blackberry and dark Asian spice notes leading to intense yet refined smoky plum, orange zest and cracked pepper flavors. Zinfandel, Carignane, Mataro, Syrah and Alicante Bouschet. Drink now through 2027. 600 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "California"], ["region", "Sonoma"], ["score", 95], ["price", 46], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 10]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455097"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455097"], ["winery_full", "Carpineto"], ["wine_full", "Vino Nobile di Montepulciano Riserva"], ["vintage", "2013"], ["note", "The stunning bouquet of ripe black cherry, black currant, leather and woodsy spice notes is enticing, while the sweet fruit is a match for the dense structure. The lengthy finish lingers, with tobacco, eucalyptus and iron accents. Drink now through 2030. 12,200 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 95], ["price", 30], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 11]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458726"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458726"], ["winery_full", "Felton Road"], ["wine_full", "Pinot Noir Central Otago Bannockburn"], ["vintage", "2017"], ["note", "Elegant, fresh and vibrant, this red starts off wonderfully perfumed, with lavender, white pepper and green tea notes that accentuate the purity of the cherry and raspberry flavors. Polished tannins still provide some grip on the finish, where white truffle and forest floor details linger. Drink now through 2032. 7,120 cases made."], ["taster_initials", "MW"], ["color", "red"], ["country", "New Zealand"], ["region", "New Zealand"], ["score", 96], ["price", 50], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 12]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 13], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452171"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452171"], ["winery_full", "Produttori del Barbaresco"], ["wine_full", "Barbaresco Rabajà Riserva"], ["vintage", "2013"], ["note", "This fruity version features floral, cherry and plum flavors, along with savory leather, licorice and tobacco notes. A chewy texture and lively acidity keep this well-defined through the long finish. Complex and classy. Best from 2023 through 2038. 1,420 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Piedmont"], ["score", 96], ["price", 66], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 13]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 14], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460695"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460695"], ["winery_full", "Warre"], ["wine_full", "Vintage Port"], ["vintage", "2016"], ["note", "Gorgeous, with warm plum reduction and gently steeped raspberry, blackberry and boysenberry fruit flavors forming the core, all inlaid with warm ganache and smoldering tobacco accents. Very plush in feel, but has no lack of energy, as everything sails beautifully through the long finish. A late echo of anise completes the seduction. Best from 2035 through 2055. 3,000 cases made."], ["taster_initials", "JM"], ["color", "dessert"], ["country", "Portugal"], ["region", "Portugal"], ["score", 98], ["price", 98], ["issue_date", "Dec 31, 2018"], ["top100_year", 2018], ["top100_rank", 14]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 15], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450808"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450808"], ["winery_full", "Canalicchio di Sopra"], ["wine_full", "Brunello di Montalcino"], ["vintage", "2013"], ["note", "Plump and bursting with cherry, strawberry and mineral aromas and flavors, this racy red evokes harmony and freshness, with hints of spice, chocolate and tobacco as it plays out gracefully on the long aftertaste. There's structure here, with all the components integrated. Best from 2020 through 2035. 2,870 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 97], ["price", 79], ["issue_date", "Jun 15, 2018"], ["top100_year", 2018], ["top100_rank", 15]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 16], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448395"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448395"], ["winery_full", "Château Monbousquet"], ["wine_full", "St.-Emilion"], ["vintage", "2015"], ["note", "A rich, expressive, slightly showy style, with waves of cassis, creamed raspberry and boysenberry fruit racing forth, backed by a polished yet ample structure. The long, licorice- and ganache-framed finish packs on weight as it moves along, yet stays defined and pure. Impressive. Best from 2022 through 2040. 9,333 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 95], ["price", 53], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 16]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450796"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450796"], ["winery_full", "Caparzo"], ["wine_full", "Brunello di Montalcino"], ["vintage", "2013"], ["note", "This cuts more of a broad swath than its peers, yet remains graceful, evoking strawberry, cherry, tobacco and stony mineral flavors. Long and dense in structure, with a tobacco- and underbrush-tinged finish. Best from 2021 through 2033. 15,000 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 95], ["price", 45], ["issue_date", "Jun 15, 2018"], ["top100_year", 2018], ["top100_rank", 17]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 18], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "444351"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (1.0ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "444351"], ["winery_full", "Château de Beaucastel"], ["wine_full", "Châteauneuf-du-Pape"], ["vintage", "2015"], ["note", "A stunner from the get-go, with waves of thoroughly seductive boysenberry, plum, blueberry and raspberry reduction forming the core, while roasted apple wood, rooibos tea, bergamot, and anise notes flash throughout. This has plenty of bass, with a Turkish coffee accent and a hint of alder driving underneath. Everything moves in lockstep through the seriously long finish. Best from 2020 through 2045. 12,500 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Southern Rhône"], ["score", 97], ["price", 99], ["issue_date", "Feb 28, 2018"], ["top100_year", 2018], ["top100_rank", 18]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 19], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455339"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455339"], ["winery_full", "San Felice"], ["wine_full", "Chianti Classico"], ["vintage", "2016"], ["note", "Expressive and smooth, this hits all the right notes, with pure black cherry, black currant and violet flavors. Touches of earth, iron and tobacco add complexity. Shows fine harmony and length. Best from 2020 through 2036. 25,000 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 94], ["price", 17], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 19]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 20], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "449804"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "449804"], ["winery_full", "Jasper Hill"], ["wine_full", "Shiraz Heathcote Georgia's Paddock"], ["vintage", "2015"], ["note", "Fragrant notes of dried rose petal and white truffle indicate something special. Inside, this offers a fleshy, velvety mix of toasted rye bread, spicy plum jam and framboise flavors. Elegant and plush, but with plenty of power within, flexing on the expressive, expansive finish that goes on and on. Drink now through 2035. 1,500 cases made."], ["taster_initials", "MW"], ["color", "red"], ["country", "Australia"], ["region", "Australia"], ["score", 95], ["price", 85], ["issue_date", "Apr 30, 2018"], ["top100_year", 2018], ["top100_rank", 20]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 21], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458012"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458012"], ["winery_full", "Scott Base"], ["wine_full", "Pinot Noir Central Otago"], ["vintage", "2016"], ["note", "Smooth, silky raspberry coulis and maraschino cherry notes are impressive for their purity, with accents of white chocolate, thyme, red licorice and cedar. Spicy cigar box accents emerge on the long, expressive and detailed finish. Drink now through 2028. 5,000 cases made."], ["taster_initials", "MW"], ["color", "red"], ["country", "New Zealand"], ["region", "New Zealand"], ["score", 93], ["price", 18], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 21]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 22], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450151"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450151"], ["winery_full", "Vik"], ["wine_full", "Milla Cala Cachapoal Valley"], ["vintage", "2012"], ["note", "Rich and refined, delivering unctuous dark fruit and spice flavors that offer a creamy svelteness. Slate and mineral accents linger on the complex finish, with dark chocolate and olive notes. Cabernet Sauvignon, Carmenère, Cabernet Franc, Syrah and Merlot. Drink now through 2022. 4,000 cases made."], ["taster_initials", "KM"], ["color", "red"], ["country", "Chile"], ["region", "Rapel"], ["score", 94], ["price", 39], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 22]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 23], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460691"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460691"], ["winery_full", "Taylor Fladgate"], ["wine_full", "Vintage Port"], ["vintage", "2016"], ["note", "This is packed with raspberry, blackberry and blueberry fruit flavors that play off one another, melding with anise, fruitcake and ganache notes. A warm tarry edge coats the finish, revealing an echo of bramble. A seriously grippy, strapping Port, this revels in its power. Best from 2032 through 2055. 6,200 cases made."], ["taster_initials", "JM"], ["color", "dessert"], ["country", "Portugal"], ["region", "Portugal"], ["score", 98], ["price", 120], ["issue_date", "Dec 31, 2018"], ["top100_year", 2018], ["top100_rank", 23]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 24], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455654"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455654"], ["winery_full", "Antinori"], ["wine_full", "Toscana Tignanello"], ["vintage", "2015"], ["note", "Dense and intensely flavored, with violet, black currant, blackberry, graphite, wild herb and spice aromas and flavors, this is concentrated and solidly built, yet also harmonious, vibrant and pure. Approachable now, but should be better in a few years. Sangiovese, Cabernet Sauvignon and Cabernet Franc. Best from 2021 through 2035. 5,000 cases imported."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 97], ["price", 135], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 24]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 25], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "449929"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "449929"], ["winery_full", "Tensley"], ["wine_full", "Syrah Santa Barbara County Colson Canyon Vineyard"], ["vintage", "2016"], ["note", "A distinctive red, with power, polish and structure, offering floral blueberry and <i>garrigue</i> aromas and dynamic huckleberry, river stone and smoky meat flavors that take on momentum toward the refined tannins. Drink now through 2028. 1,900 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "California"], ["region", "South Coast"], ["score", 94], ["price", 42], ["issue_date", "Apr 30, 2018"], ["top100_year", 2018], ["top100_rank", 25]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 26], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "454381"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "454381"], ["winery_full", "Bodegas y Viñedos Valderiz"], ["wine_full", "Ribera del Duero"], ["vintage", "2015"], ["note", "Rich and focused, this red delivers ripe fruit flavors of currant and blackberry that mingle with espresso, mineral and licorice notes. The firm tannins are well-integrated and crisp acidity keeps this focused. Concentrated and harmonious. Drink now through 2030. 2,500 cases made."], ["taster_initials", "TM"], ["color", "red"], ["country", "Spain"], ["region", "Spain"], ["score", 94], ["price", 45], ["issue_date", "Sep 30, 2018"], ["top100_year", 2018], ["top100_rank", 26]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 27], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "454780"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "454780"], ["winery_full", "Roederer Estate"], ["wine_full", "Brut Anderson Valley"], ["vintage", "NV"], ["note", "Seamless and silky, showing an almost effortless sense of complexity, with notes of lemon and pear paired with toasty brioche, fresh ginger and hazelnut details. Drink now. 80,000 cases made."], ["taster_initials", "TF"], ["color", "sparkling"], ["country", "California"], ["region", "Mendocino/Lake"], ["score", 93], ["price", 24], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 27]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 28], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452351"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452351"], ["winery_full", "Penley"], ["wine_full", "Cabernet Sauvignon Coonawarra Phoenix"], ["vintage", "2016"], ["note", "Dense, with sink-your-teeth-into-them tannins and concentration to the plum, cassis and blackberry flavors. Sage and rosemary accents linger in the background. Strikes the right balance between power and elegance, with grace notes of eucalyptus, black tea and tobacco lingering on the velvety finish. Drink now through 2030. 4,300 cases imported."], ["taster_initials", "MW"], ["color", "red"], ["country", "Australia"], ["region", "Australia"], ["score", 93], ["price", 20], ["issue_date", "Jun 15, 2018"], ["top100_year", 2018], ["top100_rank", 28]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 29], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452970"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452970"], ["winery_full", "Bodegas Breca"], ["wine_full", "Garnacha Aragón Old Vines"], ["vintage", "2015"], ["note", "Round, smooth and dense, this red shows harmony and balance. Plum and blackberry flavors mingle with black olive, toast and mineral notes, supported by well-integrated tannins and fresh acidity, leaving a lovely floral finish. Drink now through 2027. 20,000 cases made."], ["taster_initials", "TM"], ["color", "red"], ["country", "Spain"], ["region", "Spain"], ["score", 92], ["price", 16], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 29]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 30], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453125"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.8ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453125"], ["winery_full", "DeLille"], ["wine_full", "Syrah Yakima Valley Signature"], ["vintage", "2015"], ["note", "Polished and gracefully complex, with refined blackberry, espresso and smoked pepper flavors that glide along toward refined tannins. Drink now through 2025. 700 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Washington"], ["region", "Washington"], ["score", 94], ["price", 46], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 30]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 31], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456195"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456195"], ["winery_full", "Domaine Giraud"], ["wine_full", "Châteauneuf-du-Pape"], ["vintage", "2016"], ["note", "Enticing, with bright, engaging raspberry, cherry and red currant fruit infused with gently roasted sandalwood and apple wood, <i>garrigue</i> and licorice root notes. A swath of tobacco underscores the finish, giving this an old-school hint. Best from 2020 through 2040. 2,500 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Southern Rhône"], ["score", 95], ["price", 55], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 31]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 32], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455589"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455589"], ["winery_full", "Nautilus"], ["wine_full", "Sauvignon Blanc Marlborough"], ["vintage", "2017"], ["note", "Rich and complex, with honeysuckle and freshly grated ginger notes up front, giving way to juicy and crisp Meyer lemon, yellow apple and Asian pear flavors. Hints of lime zest and dried mango linger. Drink now. 10,000 cases imported."], ["taster_initials", "MW"], ["color", "white"], ["country", "New Zealand"], ["region", "New Zealand"], ["score", 92], ["price", 17], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 32]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 33], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448517"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448517"], ["winery_full", "Château Branaire-Ducru"], ["wine_full", "St.-Julien"], ["vintage", "2015"], ["note", "This pumps lush fig, boysenberry and blackberry confiture notes along, pushed by a rather polished but ample structure. Lots of anise and violet details cascade in on the finish, giving this extra aromatic dimension. Best from 2020 through 2038. 15,000 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 94], ["price", 58], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 33]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 34], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456045"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456045"], ["winery_full", "Lingua Franca"], ["wine_full", "Chardonnay Willamette Valley Bunker Hill"], ["vintage", "2016"], ["note", "Sleek and seamlessly complex, featuring expressive floral lemongrass and steely mineral aromas and plush yet refined green apple and lemon flavors accented by spicy lees. Drink now through 2022. 692 cases made."], ["taster_initials", "TF"], ["color", "white"], ["country", "Oregon"], ["region", "Oregon"], ["score", 94], ["price", 50], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 34]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 35], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458471"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458471"], ["winery_full", "Descendientes de J. Palacios"], ["wine_full", "Bierzo Pétalos"], ["vintage", "2016"], ["note", "This savory red offers notes of espresso, black olive and graphite framing a core of black cherry and licorice. Fine-grained tannins and fresh acidity keep this balanced. Harmonious and graceful. Drink now through 2024. 27,000 cases made."], ["taster_initials", "TM"], ["color", "red"], ["country", "Spain"], ["region", "Spain"], ["score", 92], ["price", 21], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 35]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 36], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452284"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452284"], ["winery_full", "Ferrari-Carano"], ["wine_full", "Chardonnay Russian River Valley Tré Terre Vineyard Select Collection"], ["vintage", "2016"], ["note", "Strikes a fine balance between vibrant citrus and green apple and pear notes. Lightly oaky and creamy midpalate, this is deftly elegant and refined. Drink now through 2022. 5,400 cases made."], ["taster_initials", "JL"], ["color", "white"], ["country", "California"], ["region", "Sonoma"], ["score", 93], ["price", 28], ["issue_date", "Jun 15, 2018"], ["top100_year", 2018], ["top100_rank", 36]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 37], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "449408"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "449408"], ["winery_full", "Bodegas Hidalgo La Gitana"], ["wine_full", "Manzanilla Sanlúcar de Barrameda La Gitana"], ["vintage", "NV"], ["note", "A bright, high-pitched style, showing tangy quinine and chamomile notes laced with talc and fleur de sel flavors. Very dry, brisk, stony-edged finish. An absolute delight. Drink now. 62,000 cases made."], ["taster_initials", "JM"], ["color", "white"], ["country", "Spain"], ["region", "Spain"], ["score", 92], ["price", 26], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 37]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 38], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "459161"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "459161"], ["winery_full", "Leeuwin"], ["wine_full", "Chardonnay Margaret River Art Series"], ["vintage", "2015"], ["note", "Supple and creamy up front, with precision to the nutmeg, lemon curd, verbena and mandarin orange flavors, which are intense and harmonious. The elegant body and lingering accents of ginger and citrus zest elevate this white to something special. Drink now through 2028. 800 cases imported."], ["taster_initials", "MW"], ["color", "white"], ["country", "Australia"], ["region", "Australia"], ["score", 95], ["price", 89], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 38]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 39], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452600"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452600"], ["winery_full", "Patricia Green"], ["wine_full", "Pinot Noir Willamette Valley Reserve"], ["vintage", "2016"], ["note", "Shows structure and sleek polish, with expressive raspberry and rose petal aromas and layered red plum, black tea and spice flavors that linger toward refined tannins. Drink now through 2024. 2,917 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Oregon"], ["region", "Oregon"], ["score", 93], ["price", 27], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 39]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 40], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452650"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452650"], ["winery_full", "Cline"], ["wine_full", "Zinfandel Contra Costa County Ancient Vines"], ["vintage", "2016"], ["note", "Lively and supple, with floral raspberry and fresh pepper aromas and sleekly appealing cherry and licorice flavors that glide lightly along the finish. Drink now through 2022. 50,000 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "California"], ["region", "Bay Area/Central Coast"], ["score", 91], ["price", 15], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 40]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 41], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "454114"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "454114"], ["winery_full", "San Román Bodegas y Viñedos"], ["wine_full", "Toro"], ["vintage", "2014"], ["note", "A velvety texture carries ripe fruit flavors of plum and blackberry in this plush red. Cocoa, loamy earth and mineral notes add depth and interest. Ripe tannins are well-integrated, and balsamic acidity keeps this lively. Drink now through 2029. 8,000 cases made."], ["taster_initials", "TM"], ["color", "red"], ["country", "Spain"], ["region", "Spain"], ["score", 94], ["price", 67], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 41]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 42], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458013"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458013"], ["winery_full", "Loveblock"], ["wine_full", "Pinot Noir Central Otago"], ["vintage", "2015"], ["note", "Rich and creamy, with clove-scented notes of black cherry, plum and licorice that are vibrant and expressive, while intriguing details of forest floor and fresh herb linger, adding another dimension. Shows terrific harmony on the finish. Drink now through 2028. 7,000 cases made."], ["taster_initials", "MW"], ["color", "red"], ["country", "New Zealand"], ["region", "New Zealand"], ["score", 92], ["price", 30], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 42]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 43], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450389"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.6ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450389"], ["winery_full", "Milbrandt"], ["wine_full", "Cabernet Sauvignon Columbia Valley"], ["vintage", "2015"], ["note", "Precise and well-built, with refined black cherry and black tea flavors that build dimension toward polished tannins. Drink now through 2024. 4,000 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Washington"], ["region", "Washington"], ["score", 91], ["price", 17], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 43]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 44], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "443554"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "443554"], ["winery_full", "Nik Weis St.-Urbans-Hof"], ["wine_full", "Riesling Qualitätswein Mosel From Old Vines"], ["vintage", "2016"], ["note", "A pure, well-sculpted, off-dry version, with persimmon, lime and slate flavors coating the palate. Hints of orchard blossom and herbs add to the complexity, making you reach for another sip. Drink now through 2024. 7,000 cases made."], ["taster_initials", "AZ"], ["color", "white"], ["country", "Germany"], ["region", "Germany"], ["score", 91], ["price", 19], ["issue_date", "Feb 28, 2018"], ["top100_year", 2018], ["top100_rank", 44]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 45], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "459133"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "459133"], ["winery_full", "Easton"], ["wine_full", "Zinfandel Amador County"], ["vintage", "2015"], ["note", "Epitomizes fine Sierra Foothills Zinfandel, offering vibrant, briary raspberry, smoked pepper and wild sweet anise flavors that stretch out on the zesty finish. Drink now through 2023. 6,200 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "California"], ["region", "Sierra Foothills"], ["score", 92], ["price", 22], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 45]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 46], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455640"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455640"], ["winery_full", "Henri Bourgeois"], ["wine_full", "Sancerre Les Baronnes"], ["vintage", "2017"], ["note", "Lively, with bright lemon curd, gooseberry, thyme and lime pith notes. The bright finish has mouthwatering cut thanks to a light chalky echo. Drink now through 2021. 7,000 cases made."], ["taster_initials", "JM"], ["color", "white"], ["country", "France"], ["region", "Loire"], ["score", 92], ["price", 25], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 46]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 47], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460553"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460553"], ["winery_full", "Edetària"], ["wine_full", "Garnatxa Blanca Terra Alta Via Terra"], ["vintage", "2017"], ["note", "This white has a thick texture, delivering pear, guava, tarragon and blanched almond flavors. Firm acidity and a touch of tannins give this a solid frame. Muscular, but remains balanced. Drink now through 2023. 5,000 cases made."], ["taster_initials", "TM"], ["color", "white"], ["country", "Spain"], ["region", "Spain"], ["score", 91], ["price", 15], ["issue_date", "Dec 31, 2018"], ["top100_year", 2018], ["top100_rank", 47]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 48], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "447061"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "447061"], ["winery_full", "Nigl"], ["wine_full", "Grüner Veltliner Niederösterreich Freiheit"], ["vintage", "2016"], ["note", "Grass and pine aromas and flavors predominate, with peach, grapefruit and floral notes underneath. Fine balance and persistence here, ending with mouthwatering notes of peach, flowers and mineral. Drink now through 2024. 1,000 cases imported."], ["taster_initials", "BS"], ["color", "white"], ["country", "Austria"], ["region", "Niederösterreich"], ["score", 91], ["price", 20], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 48]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 49], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "451940"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "451940"], ["winery_full", "Domaine Gerovassiliou"], ["wine_full", "Malagousia Epanomi Single Vineyard"], ["vintage", "2016"], ["note", "A lovely nose of floral and citrus notes leads to expressive flavors of ruby red grapefruit granita and ripe yellow peach in this well-cut, light- to medium-bodied white. Lithe and lingering on the minerally finish. Drink now through 2023. 6,700 cases made."], ["taster_initials", "AN"], ["color", "white"], ["country", "Greece"], ["region", "Greece"], ["score", 91], ["price", 23], ["issue_date", "Jun 15, 2018"], ["top100_year", 2018], ["top100_rank", 49]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 50], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "447265"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "447265"], ["winery_full", "The Four Graces"], ["wine_full", "Pinot Noir Willamette Valley"], ["vintage", "2015"], ["note", "An expressive and supple version, with a complex core of lively tannins and acidity, plus accents of black cherry, cinnamon and spice that linger toward the minerally finish. Drink now through 2024. 14,140 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Oregon"], ["region", "Oregon"], ["score", 93], ["price", 32], ["issue_date", "Feb 28, 2018"], ["top100_year", 2018], ["top100_rank", 50]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 51], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "446072"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "446072"], ["winery_full", "Radikon"], ["wine_full", "Venezia-Giulia Slatnik S Label"], ["vintage", "2015"], ["note", "Like walking through a Turkish bazaar, this wafts spice and citrus notes that pull you into the glass, while vibrant, lightly zesty acidity and light tannins form a firm, well-knit frame for the spiced range of glazed apricot, kumquat, spun honey, rose and mint flavors. Long and intriguing. Chardonnay and Friulano. Drink now through 2030. 400 cases made."], ["taster_initials", "AN"], ["color", "white"], ["country", "Italy"], ["region", "Friuli/Venezia-Giulia"], ["score", 95], ["price", 35], ["issue_date", "Apr 30, 2018"], ["top100_year", 2018], ["top100_rank", 51]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 52], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457819"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457819"], ["winery_full", "Domaine des Baumard"], ["wine_full", "Quarts de Chaume"], ["vintage", "2015"], ["note", "Waves of creamed Jonagold apple, Cavaillon melon, mirabelle plum, mango and white peach flavors provide thrilling range, while flashes of honeysuckle and verbena add detail and focus throughout. Unctuous yet pure, sweet yet invigorating, with an inner brightness that matches the outward hedonism. Best from 2020 through 2045. 100 cases imported."], ["taster_initials", "JM"], ["color", "dessert"], ["country", "France"], ["region", "Loire"], ["score", 98], ["price", 80], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 52]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 53], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457988"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457988"], ["winery_full", "Sequoia Grove"], ["wine_full", "Cabernet Sauvignon Napa Valley"], ["vintage", "2015"], ["note", "Rich, smoky oak and plump dark berry, mocha, cedar and sage flavors form an enticing mouthful, supported by a supple, caressing texture, ending long and full. Drink now through 2030. 18,106 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Napa"], ["score", 93], ["price", 42], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 53]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 54], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457274"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457274"], ["winery_full", "Terre del Barolo"], ["wine_full", "Barolo Undicicomuni Arnaldo Rivera"], ["vintage", "2013"], ["note", "The sweet fruit and solid structure play off each other as this evolves. Starts with floral, cherry, strawberry and licorice flavors, melding into the firm, resonant tannins as the finish extends. Complex, balanced and set for a long life. Best from 2022 through 2036. 4,150 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Piedmont"], ["score", 93], ["price", 30], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 54]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 55], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448412"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448412"], ["winery_full", "Château Beau-Séjour Bécot"], ["wine_full", "St.-Emilion"], ["vintage", "2015"], ["note", "This brims with ripe, juicy plum, blackberry and açaí berry flavors, studded with licorice and fruitcake notes and backed by a nicely integrated apple wood detail through the finish. Pumps a lot of fruit out but does so energetically. Best from 2020 through 2035. 6,250 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 95], ["price", 65], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 55]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 56], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455027"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455027"], ["winery_full", "Yalumba"], ["wine_full", "Viognier South Australia The Y Series"], ["vintage", "2017"], ["note", "Lemon, chamomile and spicy nectarine flavors are fresh and vibrant, set on a crisp body, finishing spicy and refreshing, with plenty of intensity. Drink now. 19,000 cases imported."], ["taster_initials", "MW"], ["color", "white"], ["country", "Australia"], ["region", "Australia"], ["score", 90], ["price", 13], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 56]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 57], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456229"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456229"], ["winery_full", "Hamilton Russell"], ["wine_full", "Chardonnay Hemel-en-Aarde Valley"], ["vintage", "2017"], ["note", "Melon, yellow apple, white peach and quince flavors give this an opulent feel, harnessed by honeysuckle and quinine accents through the finish, showing refinement and length in the end. Drink now through 2021. 2,100 cases imported."], ["taster_initials", "JM"], ["color", "white"], ["country", "South Africa"], ["region", "Walker Bay"], ["score", 93], ["price", 40], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 57]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 58], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452686"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452686"], ["winery_full", "Vasse Felix"], ["wine_full", "Cabernet Sauvignon Margaret River Filius"], ["vintage", "2015"], ["note", "Opens with a fresh green accent reminiscent of tomato leaf and sage, giving a savory, peppery note to the plush, velvety cassis and plum core. Finds balance between grace and power, with spice and herb elements lingering on the finish. Drink now through 2028. 800 cases imported."], ["taster_initials", "MW"], ["color", "red"], ["country", "Australia"], ["region", "Western Australia"], ["score", 92], ["price", 27], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 58]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 59], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453745"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453745"], ["winery_full", "R. López de Heredia Viña Tondonia"], ["wine_full", "Rioja White Viña Gravonia Crianza"], ["vintage", "2008"], ["note", "Rich and firm, this white shows complex flavors of dried apple, creamed pear, heather, white tea, coconut and vanilla. Juicy acidity and light tannins keep this focused, providing structure for the long haul. A lovely example of the traditional style. Drink now through 2026. 1,791 cases made."], ["taster_initials", "TM"], ["color", "white"], ["country", "Spain"], ["region", "Spain"], ["score", 93], ["price", 36], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 59]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 60], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456096"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456096"], ["winery_full", "Fontodi"], ["wine_full", "Chianti Classico Vigna del Sorbo Gran Selezione"], ["vintage", "2015"], ["note", "This is concentrated and monolithic, with blackberry and black cherry flavors augmented by tar, tobacco and iron notes. Offers excellent potential, but needs time to absorb the tannins. Powerful, showing fine length. Best from 2023 through 2040. 1,800 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Tuscany"], ["score", 95], ["price", 89], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 60]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 61], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453323"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453323"], ["winery_full", "Merlin"], ["wine_full", "Mâcon-La Roche Vineuse"], ["vintage", "2016"], ["note", "Complex, exhibiting saline and mineral elements, along with white peach, apple and spice flavors. Beautifully balanced and focused, remaining intense and long on the juicy finish. Drink now through 2024. 500 cases imported."], ["taster_initials", "BS"], ["color", "white"], ["country", "France"], ["region", "Burgundy"], ["score", 92], ["price", 25], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 61]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 62], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456070"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456070"], ["winery_full", "Joel Gott"], ["wine_full", "Sauvignon Blanc California"], ["vintage", "2017"], ["note", "Juicy pear, peach and citrus flavors are bright and smooth, with a touch of dried chamomile and lemon verbena lingering on the finish. Impressive for the focus and aromatic detail. Drink now. 96,700 cases made."], ["taster_initials", "MW"], ["color", "white"], ["country", "California"], ["region", "Other California"], ["score", 90], ["price", 15], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 62]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 63], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448518"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448518"], ["winery_full", "Château Gloria"], ["wine_full", "St.-Julien"], ["vintage", "2015"], ["note", "Well-steeped plum, fig and boysenberry fruit is richly layered, supported by embedded brambly grip and backed by waves of ganache and sweet tobacco on the finish. This has plenty of energy to carry it in the cellar while it rounds into form. Best from 2023 through 2038. 18,333 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 93], ["price", 44], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 63]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 64], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455317"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455317"], ["winery_full", "Terra Santa"], ["wine_full", "Île de Beauté White"], ["vintage", "2017"], ["note", "A bright and distinctive white, offering lively lemon zest, honeysuckle, quinine and tangerine notes mixed together, with good zip. Drink now. 22,000 cases made."], ["taster_initials", "JM"], ["color", "white"], ["country", "France"], ["region", "Corsica"], ["score", 90], ["price", 15], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 64]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 65], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460814"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460814"], ["winery_full", "Bodega El Esteco"], ["wine_full", "Malbec Calchaquí Valley Don David Reserve"], ["vintage", "2017"], ["note", "Dried red fruit flavors are lively, offering a surplus of rich, dried savory herb notes. Accents of hot stone and white pepper flood the finish. Drink now through 2023. 110,000 cases made."], ["taster_initials", "KM"], ["color", "red"], ["country", "Argentina"], ["region", "Salta"], ["score", 90], ["price", 16], ["issue_date", "Nov 30, 2018"], ["top100_year", 2018], ["top100_rank", 65]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 66], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "447986"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "447986"], ["winery_full", "Peter Lauer"], ["wine_full", "Riesling Qualitätswein Feinherb Mosel Barrel X"], ["vintage", "2016"], ["note", "A lithe white, showing fine clarity and focus, with orange blossom aromas followed by kumquat and nectarine notes on the palate. Off-dry, offering ample acidity for balance, with a mineral-infused finish. Drink now through 2020. 1,000 cases imported."], ["taster_initials", "AZ"], ["color", "white"], ["country", "Germany"], ["region", "Germany"], ["score", 91], ["price", 22], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 66]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 67], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453697"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453697"], ["winery_full", "Tiefenbrunner"], ["wine_full", "Pinot Grigio Vigneti delle Dolomiti"], ["vintage", "2017"], ["note", "This balanced, light-bodied white offers a lively mix of peach, passion fruit, floral and pink grapefruit zest notes, with tangy acidity and a floral finish. Drink now through 2021. 25,800 cases made."], ["taster_initials", "AN"], ["color", "white"], ["country", "Italy"], ["region", "Trentino/Alto Adige"], ["score", 90], ["price", 16], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 67]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 68], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "451432"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "451432"], ["winery_full", "Louis Jadot"], ["wine_full", "Bourgogne"], ["vintage", "2015"], ["note", "Infused with graphite and cherry aromas and flavors, this red is expressive and silky, with a good underlying structure for balance. Drink now through 2023. 35,000 cases imported."], ["taster_initials", "BS"], ["color", "red"], ["country", "France"], ["region", "Burgundy"], ["score", 90], ["price", 19], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 68]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 69], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458684"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458684"], ["winery_full", "Bookwalter"], ["wine_full", "Cabernet Sauvignon Columbia Valley Readers"], ["vintage", "2015"], ["note", "Polished yet appealingly brawny, with floral black cherry, toasted spice and bittersweet chocolate flavors that take on momentum toward refined tannins. Drink now through 2026. 3,405 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Washington"], ["region", "Washington"], ["score", 92], ["price", 28], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 69]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 70], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "447545"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "447545"], ["winery_full", "Concha y Toro"], ["wine_full", "Carmenère Peumo Serie Riberas Gran Reserva"], ["vintage", "2016"], ["note", "This boasts richly spiced aromas, with flavors to match, as well as dried raspberry, portobello mushroom and currant elements. Dried beef notes on the powerful finish. Drink now through 2021. 33,000 cases made."], ["taster_initials", "KM"], ["color", "red"], ["country", "Chile"], ["region", "Rapel"], ["score", 90], ["price", 17], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 70]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 71], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458008"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458008"], ["winery_full", "Odette"], ["wine_full", "Cabernet Sauvignon Stags Leap District"], ["vintage", "2015"], ["note", "Beautifully crafted, rich and polished, with a dense core of dark berry, mocha, cedar, crushed rock and licorice flavors, combining power and finesse in an impressive showing. Drink now through 2034. 2,324 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Napa"], ["score", 95], ["price", 140], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 71]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 72], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "454962"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "454962"], ["winery_full", "Casa Ferreirinha"], ["wine_full", "Douro White Papa Figos"], ["vintage", "2016"], ["note", "Aromatic, with notes of beeswax and almond flanking the lemon curd, pureed mango and peach flavors of this medium- to full-bodied white. Spice, herb and mineral details cascade into the long, creamy finish. Drink now through 2019. 20,000 cases made."], ["taster_initials", "GS"], ["color", "white"], ["country", "Portugal"], ["region", "Portugal"], ["score", 90], ["price", 18], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 72]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 73], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453690"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453690"], ["winery_full", "Prà"], ["wine_full", "Soave Classico Otto"], ["vintage", "2017"], ["note", "A lively, lithe white, with lovely lime blossom, pink grapefruit sorbet, stone and spice notes that linger on the mouthwatering finish. Drink now through 2022. 22,500 cases made."], ["taster_initials", "AN"], ["color", "white"], ["country", "Italy"], ["region", "Veneto"], ["score", 90], ["price", 20], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 73]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 74], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455893"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455893"], ["winery_full", "Big Table Farm"], ["wine_full", "Pinot Noir Willamette Valley"], ["vintage", "2016"], ["note", "Effortlessly elegant and complex, with vibrant rose petal, savory smoke and raspberry accents that glide along a silky texture toward the long finish. Drink now through 2024. 1,835 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Oregon"], ["region", "Oregon"], ["score", 93], ["price", 45], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 74]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 75], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "447056"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "447056"], ["winery_full", "Schloss Gobelsburg"], ["wine_full", "Grüner Veltliner Kamptal"], ["vintage", "2016"], ["note", "An aromatic style, boasting lilac and freesia accents. Apple and grapefruit notes prevail as this elegant white winds down on the graceful finish. Drink now through 2023. 3,700 cases imported."], ["taster_initials", "BS"], ["color", "white"], ["country", "Austria"], ["region", "Niederösterreich"], ["score", 90], ["price", 20], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 75]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 76], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "446971"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "446971"], ["winery_full", "La Stoppa"], ["wine_full", "Emilia Trebbiolo"], ["vintage", "2014"], ["note", "A pure beam of juicy black currant is underscored by woodsy spice, licorice and tea rose notes in this bright and appealing, medium-bodied red, with light tannins. Barbera and Bonarda. Drink now through 2023. 2,216 cases made."], ["taster_initials", "AN"], ["color", "red"], ["country", "Italy"], ["region", "Emilia-Romagna"], ["score", 91], ["price", 22], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 76]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 77], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "460503"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.6ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "460503"], ["winery_full", "A. Clape"], ["wine_full", "Cornas"], ["vintage", "2015"], ["note", "This has it all, from the dark, dense core of steeped fig, blackberry and black currant fruit to the smoldering charcoal, dark olive and singed bay leaf notes. Violet and white pepper nuances add lift before a prodigious warm cast-iron element provides spine on the finish. A brick house that will live for quite some time. Best from 2025 through 2045. 230 cases imported."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Northern Rhône"], ["score", 98], ["price", 140], ["issue_date", "Nov 30, 2018"], ["top100_year", 2018], ["top100_rank", 77]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 78], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458679"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458679"], ["winery_full", "Landmark"], ["wine_full", "Chardonnay Sonoma County Overlook"], ["vintage", "2016"], ["note", "Well-built and rich, with a solid core of apple pastry, fig and guava flavors that offer a creamy texture. Nutmeg and clove notes show on the spicy finish. Drink now through 2022. 30,000 cases made."], ["taster_initials", "KM"], ["color", "white"], ["country", "California"], ["region", "Sonoma"], ["score", 91], ["price", 25], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 78]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 79], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "450181"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "450181"], ["winery_full", "Henri Gouges"], ["wine_full", "Nuits-St.-Georges Clos des Porrets St.-Georges"], ["vintage", "2015"], ["note", "This red combines flavors of cherry, currant, spice and mineral with a core of sweet fruit, a silky texture and firm, chalky tannins. Finishes on the chewy side, with mouthcoating but not astringent tannins. Best from 2023 through 2040. 400 cases imported."], ["taster_initials", "BS"], ["color", "red"], ["country", "France"], ["region", "Burgundy"], ["score", 95], ["price", 94], ["issue_date", "May 31, 2018"], ["top100_year", 2018], ["top100_rank", 79]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 80], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457597"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457597"], ["winery_full", "Beringer"], ["wine_full", "Cabernet Sauvignon Knights Valley"], ["vintage", "2015"], ["note", "Firm, rich and tightly focused on a core of vivid dark berry, light mocha and cedar flavors, finishing long and layered. A real treat. Drink now through 2026. 85,000 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Sonoma"], ["score", 92], ["price", 36], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 80]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 81], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452482"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452482"], ["winery_full", "Librandi"], ["wine_full", "Val di Neto White Critone"], ["vintage", "2017"], ["note", "Fresh and floral, with lime blossom, kiwifruit, peach and blood orange sorbet flavors, this medium-bodied white is backed by vibrant acidity and lingers with spice and graphite accents. Chardonnay with Sauvignon Blanc. Drink now through 2021. 30,000 cases made."], ["taster_initials", "AN"], ["color", "white"], ["country", "Italy"], ["region", "Calabria"], ["score", 90], ["price", 15], ["issue_date", "Oct 15, 2018"], ["top100_year", 2018], ["top100_rank", 81]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 82], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455906"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455906"], ["winery_full", "Pendulum"], ["wine_full", "Cabernet Sauvignon Columbia Valley"], ["vintage", "2016"], ["note", "Sleek and well-defined, with expressive black cherry and savory spice flavors that finish with polished tannins. Drink now through 2023. 11,500 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Washington"], ["region", "Washington"], ["score", 90], ["price", 19], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 82]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 83], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "451800"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "451800"], ["winery_full", "HW Wine Company"], ["wine_full", "Languedoc Rosé Diving Into Hampton Water"], ["vintage", "2017"], ["note", "A nicely crafted rosé, with a hint of creamy richness lining the strawberry, melon and white cherry flavors. A dash of minerality imparts depth through the long, mouthwatering finish. A crowd-pleaser. Grenache, Cinsault, Mourvèdre and Syrah. Drink now. 35,000 cases made."], ["taster_initials", "GS"], ["color", "blush"], ["country", "France"], ["region", "Languedoc-Roussillon"], ["score", 90], ["price", 25], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 83]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 84], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "448528"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "448528"], ["winery_full", "Château Ducru-Beaucaillou"], ["wine_full", "St.-Julien"], ["vintage", "2015"], ["note", "Showy, with layers of warmed fig, roasted mesquite, black tea, incense and Turkish coffee notes, followed by waves of lush cassis, blackberry and raspberry confiture flavors. This has a graphite grounding rod, a tarry spine and riveting licorice snap details to keep it driving along. A head-turner for sure. Best from 2025 through 2045. 7,500 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Bordeaux"], ["score", 97], ["price", 177], ["issue_date", "Mar 31, 2018"], ["top100_year", 2018], ["top100_rank", 84]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 85], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453146"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453146"], ["winery_full", "Sleight of Hand"], ["wine_full", "Syrah Columbia Valley Levitation"], ["vintage", "2015"], ["note", "Polished and expressive, with blackberry, smoky sweet anise and cracked pepper flavors that take on richness toward refined tannins. Drink now through 2024. 750 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "Washington"], ["region", "Washington"], ["score", 93], ["price", 45], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 85]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 86], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "459469"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "459469"], ["winery_full", "Massican"], ["wine_full", "Annia Napa Valley"], ["vintage", "2017"], ["note", "A complex and inviting white, showing intricate nuances of roasted almond, matcha, honeysuckle and orange zest, mingling with supple, juicy Asian pear, tangerine and ripe melon notes. The smooth texture and a thread of acidity add to the appeal. Ribolla Gialla, Tocai Friulano and Chardonnay. Drink now. 1,128 cases made."], ["taster_initials", "MW"], ["color", "white"], ["country", "California"], ["region", "Napa"], ["score", 92], ["price", 30], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 86]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 87], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "457386"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "457386"], ["winery_full", "Golan Heights Winery"], ["wine_full", "Cabernet Sauvignon Galilee Yarden"], ["vintage", "2014"], ["note", "A sinewy, full-bodied red, with balsamic acidity gliding through the black olive, currant and eucalyptus flavors. Spice, mineral and leather details gain traction into the long finish. Cabernet Sauvignon, Merlot and Cabernet Franc. Kosher. Drink now through 2023. 23,486 cases made."], ["taster_initials", "GS"], ["color", "red"], ["country", "Israel"], ["region", "Israel"], ["score", 91], ["price", 33], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 87]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 88], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458803"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458803"], ["winery_full", "Paolo Scavino"], ["wine_full", "Barolo"], ["vintage", "2014"], ["note", "This starts out with plenty of cherry, plum and orange peel flavors, offset by iron, eucalyptus and tobacco accents. The finish is rustic, with the tannins flexing their muscles, yet this comes together in the end. A wine for the long haul. Best from 2023 through 2040. 2,500 cases made."], ["taster_initials", "BS"], ["color", "red"], ["country", "Italy"], ["region", "Piedmont"], ["score", 93], ["price", 49], ["issue_date", "Dec 31, 2018"], ["top100_year", 2018], ["top100_rank", 88]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 89], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "455939"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "455939"], ["winery_full", "Lucienne"], ["wine_full", "Pinot Noir Santa Lucia Highlands Doctor's Vineyard"], ["vintage", "2016"], ["note", "Rich and layered, with plump, juicy wild berry, raspberry, blackberry jam and cedar flavors. A full and complete style that touches all the bases. Drink now through 2025. 777 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Bay Area/Central Coast"], ["score", 93], ["price", 50], ["issue_date", "Aug 31, 2018"], ["top100_year", 2018], ["top100_rank", 89]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 90], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "461875"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "461875"], ["winery_full", "Domaine St.-Préfert"], ["wine_full", "Châteauneuf-du-Pape Auguste Favier Réserve"], ["vintage", "2016"], ["note", "This is beautifully rendered, with a core of focused red currant, plum and raspberry coulis flavors that stretches out nicely while flecks of tobacco, bergamot and singed sandalwood weave around. A bolt of iron detail shows through the finish, with a light echo of worn leather. Well-built, showing ample energy in reserve. Best from 2020 through 2040. 1,400 cases made."], ["taster_initials", "JM"], ["color", "red"], ["country", "France"], ["region", "Southern Rhône"], ["score", 97], ["price", 62], ["issue_date", "Nov 30, 2018"], ["top100_year", 2018], ["top100_rank", 90]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 91], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "446179"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "446179"], ["winery_full", "Ridge"], ["wine_full", "Lytton Springs Dry Creek Valley"], ["vintage", "2015"], ["note", "Briary and subtly potent, with floral black raspberry and licorice aromas and zesty, well-built dark cherry, smoky anise and pepper flavors that finish with ripe tannins. Zinfandel, Petite Sirah, Carignane and Mourvèdre. Best from 2019 through 2024. 9,750 cases made."], ["taster_initials", "TF"], ["color", "red"], ["country", "California"], ["region", "Sonoma"], ["score", 92], ["price", 40], ["issue_date", "Feb 28, 2018"], ["top100_year", 2018], ["top100_rank", 91]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 92], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "446474"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "446474"], ["winery_full", "Sadie Family"], ["wine_full", "Skerpioen Swartland"], ["vintage", "2016"], ["note", "Intense and still youthfully tight, with verbena and white peach notes leading the way for yellow apple, chamomile, white ginger and jasmine flavors. A lovely quinine streak is well-embedded, giving this tension and vibrancy through the finish. Chenin Blanc and Palomino. Drink now through 2024. 406 cases made."], ["taster_initials", "JM"], ["color", "white"], ["country", "South Africa"], ["region", "Coastal Region"], ["score", 95], ["price", 60], ["issue_date", "Feb 28, 2018"], ["top100_year", 2018], ["top100_rank", 92]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 93], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "452569"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "452569"], ["winery_full", "Carol Shelton"], ["wine_full", "Rosé Wild Thing Rendezvous Mendocino County"], ["vintage", "2017"], ["note", "A spirited California rosé, with lively raspberry, cherry and spice flavors that dance along the finish. Carignane, Zinfandel and Cabernet Sauvignon. Drink now. 1,616 cases made."], ["taster_initials", "TF"], ["color", "blush"], ["country", "California"], ["region", "Mendocino/Lake"], ["score", 90], ["price", 15], ["issue_date", "Jun 30, 2018"], ["top100_year", 2018], ["top100_rank", 93]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 94], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "453499"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.5ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "453499"], ["winery_full", "Matervini"], ["wine_full", "Malbec Luján de Cuyo Finca Perdriel"], ["vintage", "2015"], ["note", "Big, rich and full-bodied, with inky accents to the ripe dark plum, cherry and blackberry flavors. Black licorice notes show midpalate, with mocha and dark chocolate details on the dense finish. Drink now through 2022. 336 cases made."], ["taster_initials", "KM"], ["color", "red"], ["country", "Argentina"], ["region", "Mendoza"], ["score", 94], ["price", 90], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 94]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 95], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "456374"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "456374"], ["winery_full", "Ghost Pines"], ["wine_full", "Pinot Noir Yolo-Sonoma-Monterey Counties Winemaker's Blend"], ["vintage", "2016"], ["note", "Complex and spicy, offering wild plum, blackberry, spice and tea flavors that show subtle herb shadings, ending with dusty, loamy tannins and good length. Drink now through 2023. 13,000 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Other California"], ["score", 90], ["price", 23], ["issue_date", "Sep 30, 2018"], ["top100_year", 2018], ["top100_rank", 95]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 96], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "451639"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "451639"], ["winery_full", "Tabarrini"], ["wine_full", "Montefalco Sagrantino Colle alle Macchie"], ["vintage", "2013"], ["note", "There's a pleasing creaminess to the intense tannins of this harmonious, full-bodied red, offering crushed cassis and black raspberry fruit that shows accents of lavender and rosemary, with licorice, espresso and loamy earth notes. An iron fist in a velvet glove, this should unfurl beautifully with age. Best from 2020 through 2035. 175 cases made."], ["taster_initials", "AN"], ["color", "red"], ["country", "Italy"], ["region", "Umbria"], ["score", 95], ["price", 75], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 96]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 97], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "459115"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "459115"], ["winery_full", "Drouhin Oregon Roserock"], ["wine_full", "Chardonnay Eola-Amity Hills"], ["vintage", "2016"], ["note", "Polished and refined, with expressive apple, ripe cantaloupe and spice flavors that take on richness on the long finish. Drink now through 2020. 2,866 cases made."], ["taster_initials", "TF"], ["color", "white"], ["country", "Oregon"], ["region", "Oregon"], ["score", 91], ["price", 35], ["issue_date", "Nov 15, 2018"], ["top100_year", 2018], ["top100_rank", 97]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 98], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "449644"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.4ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "449644"], ["winery_full", "Loring"], ["wine_full", "Pinot Noir Sta. Rita Hills"], ["vintage", "2016"], ["note", "Powerful, focused and well-spiced, with flavors of dark cherry, plum tart and dried beef that lengthen out nicely. Pastry notes linger midpalate, leading to a finish of cola nut and chocolate nib accents. Drink now through 2022. 900 cases made."], ["taster_initials", "KM"], ["color", "red"], ["country", "California"], ["region", "South Coast"], ["score", 92], ["price", 38], ["issue_date", "Apr 30, 2018"], ["top100_year", 2018], ["top100_rank", 98]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 99], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "449983"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "449983"], ["winery_full", "Cleto Chiarli e Figli"], ["wine_full", "Lambrusco di Sorbara del Fondatore"], ["vintage", "2016"], ["note", "A well-knit rosé Lambrusco, featuring a fine, lively mousse and a bright mix of crushed raspberry, crunchy peach, dried thyme and rose petal notes, with a tangy finish of citrus zest and spice. Drink now through 2020. 5,000 cases made."], ["taster_initials", "AN"], ["color", "sparkling"], ["country", "Italy"], ["region", "Emilia-Romagna"], ["score", 90], ["price", 17], ["issue_date", "Jul 31, 2018"], ["top100_year", 2018], ["top100_rank", 99]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."top100_rank" = $1 LIMIT $2[0m  [["top100_rank", 100], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "wines" WHERE "wines"."wineId" = $1 LIMIT $2[0m  [["wineId", "458059"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:8
+  [1m[36mWine Create (0.3ms)[0m  [1m[32mINSERT INTO "wines" ("wineId", "winery_full", "wine_full", "vintage", "note", "taster_initials", "color", "country", "region", "score", "price", "issue_date", "top100_year", "top100_rank") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["wineId", "458059"], ["winery_full", "Foley Johnson"], ["wine_full", "Meritage Rutherford"], ["vintage", "2014"], ["note", "Bordeaux-like, offering an expansive mix of currant, cedar, cigar box, riverbed and tobacco leaf flavors. Cabernet Sauvignon, Merlot, Petit Verdot, Malbec and Cabernet Franc. Best from 2020 through 2032. 1,429 cases made."], ["taster_initials", "JL"], ["color", "red"], ["country", "California"], ["region", "Napa"], ["score", 92], ["price", 45], ["issue_date", "Oct 31, 2018"], ["top100_year", 2018], ["top100_rank", 100]]
+  ↳ db/seeds.rb:8
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[36mWine Load (1.1ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+Started GET "/" for ::1 at 2020-03-01 12:20:55 -0500
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 28ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 12:36:22 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 9ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 12:46:25 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 12:47:26 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 12:52:00 -0500
+
+NameError - uninitialized constant StaticPagesController:
+
+Started POST "/__better_errors/9da77edae676b4ca/variables" for ::1 at 2020-03-01 12:52:01 -0500
+Started GET "/" for ::1 at 2020-03-01 12:53:21 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 205ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  /Users/owner/Desktop/top100_wines/app/assets/config
+  /Users/owner/Desktop/top100_wines/app/assets/images
+  /Users/owner/Desktop/top100_wines/app/assets/javascripts
+  /Users/owner/Desktop/top100_wines/app/assets/stylesheets
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/owner/Desktop/top100_wines/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3231286164963285651_70338844460460'
+
+Started POST "/__better_errors/0a73e21a472dc892/variables" for ::1 at 2020-03-01 12:53:22 -0500
+Started GET "/" for ::1 at 2020-03-01 12:54:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery_ujs' with type 'application/javascript'
+Checked in these paths: 
+  /Users/owner/Desktop/top100_wines/app/assets/config
+  /Users/owner/Desktop/top100_wines/app/assets/images
+  /Users/owner/Desktop/top100_wines/app/assets/javascripts
+  /Users/owner/Desktop/top100_wines/app/assets/stylesheets
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.4.1/lib/assets/compiled
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.4.1/app/assets/javascripts
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.4.1/lib/assets/compiled
+  /Users/owner/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/turbolinks-source-5.2.0/lib/assets/javascripts
+  /Users/owner/Desktop/top100_wines/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3231286164963285651_70338862059700'
+
+Started POST "/__better_errors/df5a6d6b7a11f41a/variables" for ::1 at 2020-03-01 12:54:21 -0500
+Started GET "/" for ::1 at 2020-03-01 12:55:32 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.3ms)
+Completed 200 OK in 1914ms (Views: 1911.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/wines" for ::1 at 2020-03-01 12:55:35 -0500
+
+NameError - uninitialized constant WinesController:
+
+Started GET "/" for ::1 at 2020-03-01 12:59:27 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.5ms)
+Completed 200 OK in 622ms (Views: 619.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 12:59:28 -0500
+Processing by Api::WinesController#index as JSON
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - uninitialized constant Api::WinesController::Wines:
+  app/controllers/api/wines_controller.rb:3:in `index'
+
+Started GET "/" for ::1 at 2020-03-01 13:01:49 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.9ms)
+Completed 200 OK in 39ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:01:50 -0500
+Processing by Api::WinesController#index as JSON
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/wines/index, application/index with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/owner/Desktop/top100_wines/app/views"
+:
+  app/controllers/api/wines_controller.rb:4:in `index'
+
+Started GET "/" for ::1 at 2020-03-01 13:02:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.4ms)
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:02:40 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (51.4ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (458.7ms)
+Completed 200 OK in 513ms (Views: 136.5ms | ActiveRecord: 366.4ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:07:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.7ms)
+Completed 200 OK in 648ms (Views: 644.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:07:34 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (7.8ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (72.6ms)
+Completed 200 OK in 80ms (Views: 71.3ms | ActiveRecord: 7.8ms)
+
+
+  [1m[36mWine Load (1.4ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+Started GET "/" for ::1 at 2020-03-01 13:09:53 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.2ms)
+Completed 200 OK in 545ms (Views: 542.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:09:54 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (1.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (216911.6ms)
+Completed 500 Internal Server Error in 216924ms (ActiveRecord: 1.9ms)
+
+
+
+SystemExit - exit:
+  (byebug):1:in `block (2 levels) in _app_views_api_index_json_jbuilder___1076476651792540963_70338861501460'
+  app/views/api/index.json.jbuilder:4:in `block (2 levels) in _app_views_api_index_json_jbuilder___1076476651792540963_70338861501460'
+  app/views/api/index.json.jbuilder:2:in `block in _app_views_api_index_json_jbuilder___1076476651792540963_70338861501460'
+  app/views/api/index.json.jbuilder:1:in `_app_views_api_index_json_jbuilder___1076476651792540963_70338861501460'
+  app/controllers/api/wines_controller.rb:4:in `index'
+
+Started GET "/" for ::1 at 2020-03-01 13:13:53 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.2ms)
+Completed 200 OK in 357ms (Views: 339.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:13:54 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (127.6ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2297.9ms)
+Completed 200 OK in 2374ms (Views: 2210.2ms | ActiveRecord: 127.6ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:20:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.0ms)
+Completed 200 OK in 1322ms (Views: 1300.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:20:03 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (29.8ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2389.2ms)
+Completed 200 OK in 2482ms (Views: 2393.4ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:21:00 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.4ms)
+Completed 200 OK in 1452ms (Views: 1427.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:21:03 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (24.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1526.1ms)
+Completed 200 OK in 1647ms (Views: 1595.8ms | ActiveRecord: 24.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:22:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.8ms)
+Completed 200 OK in 1307ms (Views: 1288.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:22:41 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (23.5ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1869.3ms)
+Completed 200 OK in 1955ms (Views: 1891.3ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:24:55 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.3ms)
+Completed 200 OK in 525ms (Views: 498.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:24:56 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (4.0ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1636.5ms)
+Completed 200 OK in 1801ms (Views: 1729.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:52:26 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (4.3ms)
+Completed 200 OK in 26629ms (Views: 26596.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:53:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.8ms)
+Completed 200 OK in 1284ms (Views: 1260.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:56:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.6ms)
+Completed 200 OK in 1589ms (Views: 1567.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:57:35 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.5ms)
+Completed 200 OK in 1325ms (Views: 1309.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:58:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.9ms)
+Completed 200 OK in 1187ms (Views: 1152.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:58:30 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (5.4ms)
+Completed 200 OK in 1690ms (Views: 1653.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:58:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.3ms)
+Completed 200 OK in 1723ms (Views: 1695.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 13:59:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.2ms)
+Completed 200 OK in 1328ms (Views: 1313.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:59:36 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (84.6ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2807.1ms)
+Completed 200 OK in 2874ms (Views: 2761.7ms | ActiveRecord: 84.6ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 13:59:39 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (1.7ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1585.6ms)
+Completed 200 OK in 1645ms (Views: 1618.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:02:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.3ms)
+Completed 200 OK in 1303ms (Views: 1278.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:02:48 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (71.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2484.8ms)
+Completed 200 OK in 2575ms (Views: 2451.5ms | ActiveRecord: 71.2ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:02:51 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (3.7ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1721.4ms)
+Completed 200 OK in 1778ms (Views: 1758.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:03:54 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.3ms)
+Completed 200 OK in 1370ms (Views: 1350.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:03:56 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (32.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1705.0ms)
+Completed 200 OK in 1794ms (Views: 1716.6ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:03:58 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (2.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1506.0ms)
+Completed 200 OK in 1556ms (Views: 1536.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:05:57 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.5ms)
+Completed 200 OK in 1304ms (Views: 1284.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:05:58 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (13.6ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1342.2ms)
+Completed 200 OK in 1475ms (Views: 1420.1ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:06:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.6ms)
+Completed 200 OK in 1476ms (Views: 1453.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:06:09 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (35.4ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1836.5ms)
+Completed 200 OK in 2029ms (Views: 1888.7ms | ActiveRecord: 35.4ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:07:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (7.6ms)
+Completed 200 OK in 1548ms (Views: 1530.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:07:22 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (16.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2130.3ms)
+Completed 200 OK in 2254ms (Views: 2216.9ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:07:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.0ms)
+Completed 200 OK in 1276ms (Views: 1255.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:08:01 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (28.7ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1844.0ms)
+Completed 200 OK in 1976ms (Views: 1921.5ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:08:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.9ms)
+Completed 200 OK in 1323ms (Views: 1295.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:08:42 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (29.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1781.5ms)
+Completed 200 OK in 1838ms (Views: 1783.2ms | ActiveRecord: 29.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:10:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.7ms)
+Completed 200 OK in 696ms (Views: 671.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:10:29 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (3.1ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1824.0ms)
+Completed 200 OK in 1890ms (Views: 1863.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:11:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.5ms)
+Completed 200 OK in 1126ms (Views: 1113.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:11:44 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (22.7ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1727.9ms)
+Completed 200 OK in 1883ms (Views: 1837.7ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:13:01 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (4.2ms)
+Completed 200 OK in 563ms (Views: 550.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:13:02 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (8.1ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1905.2ms)
+Completed 200 OK in 2006ms (Views: 1949.6ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:13:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.5ms)
+Completed 200 OK in 422ms (Views: 404.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:13:25 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (12.8ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2003.9ms)
+Completed 200 OK in 2100ms (Views: 2056.1ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:13:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.1ms)
+Completed 200 OK in 619ms (Views: 585.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:13:30 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (16.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1902.9ms)
+Completed 200 OK in 2069ms (Views: 2032.3ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:14:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.3ms)
+Completed 200 OK in 670ms (Views: 650.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:14:10 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (162.4ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (4892.6ms)
+Completed 200 OK in 4983ms (Views: 4772.4ms | ActiveRecord: 162.4ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:14:47 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.5ms)
+Completed 200 OK in 613ms (Views: 591.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:14:48 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (34.6ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1965.1ms)
+Completed 200 OK in 2146ms (Views: 2087.0ms | ActiveRecord: 34.6ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:14:54 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.1ms)
+Completed 200 OK in 494ms (Views: 472.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:14:55 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (49.5ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (4538.2ms)
+Completed 200 OK in 4595ms (Views: 4530.7ms | ActiveRecord: 49.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:15:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.0ms)
+Completed 200 OK in 650ms (Views: 621.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:15:31 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (4.0ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (3471.6ms)
+Completed 200 OK in 3626ms (Views: 3582.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:16:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.1ms)
+Completed 200 OK in 809ms (Views: 788.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:16:09 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (30.3ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (4613.3ms)
+Completed 200 OK in 4695ms (Views: 4625.9ms | ActiveRecord: 30.3ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:16:32 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.8ms)
+Completed 200 OK in 496ms (Views: 481.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:16:33 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (12.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2032.2ms)
+Completed 200 OK in 2130ms (Views: 2087.9ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:16:41 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.6ms)
+Completed 200 OK in 569ms (Views: 548.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:16:42 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (11.7ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1504.4ms)
+Completed 200 OK in 1610ms (Views: 1574.9ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:17:07 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.9ms)
+Completed 200 OK in 1082ms (Views: 1060.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:17:09 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (63.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (2174.4ms)
+Completed 200 OK in 2266ms (Views: 2161.6ms | ActiveRecord: 63.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:17:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (2.7ms)
+Completed 200 OK in 464ms (Views: 437.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:17:13 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (44.2ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1667.5ms)
+Completed 200 OK in 1734ms (Views: 1675.3ms | ActiveRecord: 44.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:17:24 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.4ms)
+Completed 200 OK in 607ms (Views: 584.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:17:25 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (43.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1831.4ms)
+Completed 200 OK in 1914ms (Views: 1841.1ms | ActiveRecord: 43.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:18:35 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.8ms)
+Completed 200 OK in 711ms (Views: 696.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:18:36 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (5.5ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1802.3ms)
+Completed 200 OK in 1958ms (Views: 1883.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-01 14:19:25 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (3.3ms)
+Completed 200 OK in 422ms (Views: 407.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/wines" for ::1 at 2020-03-01 14:19:26 -0500
+Processing by Api::WinesController#index as JSON
+  Rendering api/index.json.jbuilder
+  [1m[36mWine Load (37.9ms)[0m  [1m[34mSELECT "wines".* FROM "wines"[0m
+  ↳ app/views/api/index.json.jbuilder:1
+  Rendered api/index.json.jbuilder (1666.7ms)
+Completed 200 OK in 1810ms (Views: 1757.9ms | ActiveRecord: 37.9ms)
+
+

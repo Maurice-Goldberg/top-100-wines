@@ -1,5 +1,6 @@
 import React from 'react';
 import { Throttle, Debounce } from 'react-throttle';
+import LoadingScreen from '../loading_screen';
 
 class WineList extends React.Component {
     constructor(props) {
@@ -7,38 +8,36 @@ class WineList extends React.Component {
         this.state = {
             hoveredWineId: null
         }
-
-        this.displayNote = this.displayNote.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchWines();
-    }
-
-    displayNote(wineId) {
-        this.props.fetchTastingNote(parseInt(wineId)).then(() => {
-            this.setState({ hoveredWineId: wineId });
-        });
     }
 
     render() {
         if(Object.values(this.props.wines).length === 0) {
-            return null;
+            if(this.props.loading) {
+                this.props.fetchWines().then(this.props.stopLoading);
+            } else {
+                this.props.startLoading();
+            }
+            return (
+                <LoadingScreen />
+            );
         }
 
         let wineList = Object.values(this.props.wines).map((wineObj) => {
             return (
-                <div key={wineObj.id} className="wine-item">
+                <div key={wineObj.wineId} className="wine-item">
                         <Debounce time="100" handler="onMouseOver">
-                            <li onMouseOver={() => this.displayNote(wineObj.id)} onMouseLeave={() => this.setState({ hoveredWineId: null })}>
-                                <p>{wineObj.wine_full}</p>
-                                <p>{wineObj.winery_full}</p>
-                                <p>{wineObj.vintage}</p>
+                            <li key={wineObj.wineId} onMouseOver={() => this.setState({ hoveredWineId: wineObj.wineId })} onMouseLeave={() => this.setState({ hoveredWineId: null })}>
+                                <p className="wine-name">{wineObj.wine_full}</p>
+                                <p className="winery-name">{wineObj.winery_full}</p>
+                                <p className="vintage">{wineObj.vintage}</p>
                             </li>
                         </Debounce>
-                    {this.state.hoveredWineId === wineObj.id && 
+                    {this.state.hoveredWineId === wineObj.wineId && 
                         <p className="tasting-note">
-                            {this.props.tastingNotes[wineObj.id]}
+                            {this.props.wines[wineObj.wineId].note}
                         </p>
                     }
                 </div>
