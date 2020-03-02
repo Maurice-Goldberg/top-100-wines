@@ -1,10 +1,231 @@
-.wine-list-container {
+h1 {
+    position: absolute;
+    margin: 0;
+    padding: 15px;
+    font-size: 50px;
+    text-align: center;
+    width: 100%;
+    background: black;
+    color: white;
+    box-shadow: -3px 6px 3px -3px gray;
+    animation-name: drop-down;
+    animation-duration: 0.8s;
+}
+
+.content {
+    animation-name: fade-in;
+    animation-duration: 1s;
+    height: 100%;
+}
+
+.wine-info {
+    padding-top: 30px;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.wine-list {
+    height: 70%;
+    width: 500px;
+    padding: 15px;
+    border: 1px solid black;
+    box-shadow: 3px 4px 5px #888888;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    animation-name: slide-in-right;
+    animation-duration: 1s;
+}
+
+.wine-items-container {
+    overflow-y: auto;
+    height: 85%;
+    margin-bottom: 15px;
+}
+
+.sorting-and-filtering {
+    margin-bottom: 10px;
+}
+
+.sorting {
+    margin-bottom: 5px;
+}
+
+select {
+    background-color: black;
+    color: white;
+    font-family: 'Spartan';
+    font-size: 16px;
+    height: 30px;
+    margin-left: 5px;
+    outline: none;
+}
+
+option {
+    background-color: black;
+    color: white;
+}
+
+li {
+    position: relative;
+    list-style-type: none;
+    cursor: default;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.wine-rank {
+    font-size: 50px;
+    margin-left: 15px;
+    width: 110px;
+}
+
+.wine-details {
+    width: 350px;
+}
+
+.no-results {
+    font-size: 40px;
+    margin-left: 140px;
+    margin-top: 30px;
+}
+
+.wine-name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.winery-name-and-country {
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price {
+    position: absolute;
+    top: 50px;
+    left: 420px;
+    font-size: 23px;
+}
+
+.red-wine {
+    background: rgba(128, 0, 0, 0.543);
+}
+
+.white-wine, .sparkling-wine {
+    background: rgb(255, 247, 183);
+}
+
+.blush-wine {
+    background: rgba(225, 126, 142, 0.536);
+}
+
+.dessert-wine {
+    background: #762b1fc6;
+}
+
+.red-wine:hover {
+    background: rgba(128, 0, 0, 0.7);
+}
+
+.white-wine:hover, .sparkling-wine:hover {
+    background: rgb(247, 234, 132);
+}
+
+.blush-wine:hover {
+    background: rgba(225, 126, 142, 0.7);
+}
+
+.dessert-wine:hover {
+    background: #762b1fe0;
+}
+
+.sparkling-wine {
+    overflow: hidden;
+}
+
+#red-wine {
+     background: rgba(128, 0, 0, 0.7);
+}
+
+#white-wine, #sparkling-wine {
+    background: rgb(247, 234, 132);
+}
+
+#blush-wine {
+    background: rgba(225, 126, 142, 0.7);
+}
+
+#dessert-wine {
+    background: #762b1fe0;
+}
+
+p {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.wine-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tasting-note-container {
+    position: relative;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    width: 400px;
+    height: 60%;
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 3px 4px 5px #888888;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation-name: slide-in-left;
+    animation-duration: 1s;
+    overflow-y: hidden;
+}
+
+.tasting-note-container h2 {
+    font-size: 30px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.tasting-note-content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     animation-name: fade-in;
     animation-duration: 0.5s;
 }
 
-li {
-    list-style-type: none;
+.tasting-note-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tasting-note-content p {
+    font-size: 21px;
+    overflow-y: auto;
 }
 
 .loading-bg {
@@ -25,11 +246,219 @@ li {
     height: 400px;
 }
 
+
+.bubble {
+    width: 20px;
+    height: 20px;
+    background: #ffb200;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    position: absolute;
+}
+
+.x1 {
+    left: 60px;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.2;
+    -webkit-animation: moveclouds 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.x2 {
+    left: 130px;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.5;
+    -webkit-animation: moveclouds 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+.x3 {
+    left: 220px;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.3;
+    -webkit-animation: moveclouds 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.x4 {
+    left: 300px;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.35;
+    -webkit-animation: moveclouds 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+.x5 {
+    left: 380px;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.3;
+    -webkit-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
+.note-bubbles .x1 {
+    -webkit-animation: moveclouds-note 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds-note 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds-note 3s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.note-bubbles .x2 {
+    -webkit-animation: moveclouds-note 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds-note 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds-note 2s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+
+.note-bubbles .x3 {
+    -webkit-animation: moveclouds-note 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds-note 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds-note 4s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+.note-bubbles .x4 {
+    -webkit-animation: moveclouds-note 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds-note 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds-note 3s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+
+.note-bubbles .x5 {
+    -webkit-animation: moveclouds-note 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds-note 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds-note 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0%;
     }
     to {
         opacity: 100%;
+    }
+}
+
+@keyframes drop-down {
+    from {
+        margin-top: -80px;
+        opacity: 0%;
+    }
+    to {
+        margin-top: 0px;
+        opacity: 100%;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        margin-left: -1000px;
+    }
+    to {
+        margin-left: 10px;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        margin-right: -1000px;
+    }
+    to {
+        margin-right: 10px;
+    }
+}
+
+/* CSS bubbles partially inspired by Asad Saeeduddin from Stack Overflow:
+    https://stackoverflow.com/questions/13953053/animate-bubbles-upwards-continuously-with-css3
+*/
+@-webkit-keyframes moveclouds {
+    0% {
+        top: 100px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@-webkit-keyframes moveclouds-note {
+    0% {
+        top: 600px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@-webkit-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+
+@-moz-keyframes moveclouds {     
+    0% {
+        top: 100px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@-moz-keyframes moveclouds-note {     
+    0% {
+        top: 600px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@-moz-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+
+@-o-keyframes moveclouds {
+    0% {
+        top: 100px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@-o-keyframes moveclouds-note {
+    0% {
+        top: 600px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@-o-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
     }
 }
